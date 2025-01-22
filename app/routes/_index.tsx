@@ -91,8 +91,7 @@ export default function Index() {
 
         const streamParts = decoder
           .decode(concatenatedChunks, { stream: true })
-          .split("\n")
-          .filter((line) => line !== "")
+          .split(/\n(?=event: )/)
           // TODO
           .map((res) => console.log(res));
       }
